@@ -1,6 +1,6 @@
 [submodule "frontend-prodeoptica"]
 	path = frontend-prodeoptica
-	url = git@github-personal:MatiasG2377/frontoptica.git
+	url = git@github-personal:MatiasG2377/frontend-prodeoptica.git
 [submodule "backend-prodeoptica"]
 	path = backend-prodeoptica
-	url = git@github-personal:MatiasG2377/ProyectoFinalAPI.git
+	url = git@github-personal:MatiasG2377/backend-prodeoptica.git
