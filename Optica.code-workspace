@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "Optica (root)",
+			"path": "."
+		},
+		{
+			"name": "frontend-prodeoptica",
+			"path": "frontend-prodeoptica"
+		},
+		{
+			"name": "backend-prodeoptica",
+			"path": "backend-prodeoptica"
+		}
+	],
+	"settings": {}
+}
