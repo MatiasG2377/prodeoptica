@@ -11,9 +11,28 @@ Workspace integrado para el sistema **Prodeóptica**, compuesto por:
 Optica/
 ├── .gitmodules
 ├── Optica.code-workspace
+├── capturas/                   (Galería de capturas para portafolio)
 ├── frontend-prodeoptica/       (Submódulo Git)
 └── backend-prodeoptica/        (Submódulo Git)
 ```
+
+---
+
+## 📸 Demo & Capturas de Portafolio
+
+Puedes consultar la galería completa con descripciones técnicas detalladas en [`capturas/`](./capturas/README.md).
+
+| Dashboard Ejecutivo con KPIs & Chart.js | Punto de Venta (POS) & Facturación |
+| :---: | :---: |
+| ![Dashboard](./capturas/02-dashboard-analitica.png) | ![POS](./capturas/03-punto-de-venta-pos.png) |
+
+| Ficha Médica y Control Optométrico | Auditoría de Kardex Valorizado |
+| :---: | :---: |
+| ![Ficha Médica](./capturas/05-ficha-medica-optometria.png) | ![Kardex](./capturas/06-kardex-movimientos.png) |
+
+*Explora todas las capturas (Login, Inventario, Abonos, Ingresos, CRUD y Navegación) en la carpeta [`capturas/`](./capturas).*
+
+---
 
 ## Clonación con submódulos
 
