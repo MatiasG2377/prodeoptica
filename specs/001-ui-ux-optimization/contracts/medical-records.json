@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Medical Records & Patient Contract",
+  "endpoints": {
+    "GET /api/cliente-paciente/buscar/?ci={ci}": {
+      "description": "Busca un paciente y cliente por su cédula y devuelve su historial clínico previo.",
+      "response": {
+        "type": "object",
+        "properties": {
+          "cliente": {
+            "type": ["object", "null"],
+            "properties": {
+              "id": { "type": "integer" },
+              "ci_cliente": { "type": "string" },
+              "nombre_cliente": { "type": "string" },
+              "apellido_cliente": { "type": "string" },
+              "correo_cliente": { "type": "string" },
+              "telefono_cliente": { "type": "string" }
+            }
+          },
+          "paciente": {
+            "type": ["object", "null"],
+            "properties": {
+              "id": { "type": "integer" },
+              "ci_paciente": { "type": "string" },
+              "nombres_paciente": { "type": "string" },
+              "apellidos_paciente": { "type": "string" },
+              "fecha_nacimiento": { "type": ["string", "null"] },
+              "ocupacion_paciente": { "type": "string" },
+              "antecedentes_paciente": { "type": "string" }
+            }
+          },
+          "historial_fichas": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "integer" },
+                "fecha": { "type": "string" },
+                "rx_distancia_od_esfera": { "type": "string" },
+                "rx_distancia_oi_esfera": { "type": "string" },
+                "diagnostico": { "type": "string" },
+                "tipo_lente": { "type": "string" },
+                "material": { "type": "string" }
+              }
+            }
+          }
+        },
+        "required": ["historial_fichas"]
+      }
+    },
+    "POST /api/fichas-medicas/": {
+      "description": "Registra una nueva evaluación refractiva optométrica.",
+      "request": {
+        "type": "object",
+        "properties": {
+          "paciente": { "type": "integer" },
+          "usuario": { "type": "integer" },
+          "sucursal": { "type": "integer" },
+          "rx_distancia_od_av": { "type": "string" },
+          "rx_distancia_od_esfera": { "type": "string" },
+          "rx_distancia_od_cilindro": { "type": "string" },
+          "rx_distancia_od_eje": { "type": "string" },
+          "rx_distancia_oi_av": { "type": "string" },
+          "rx_distancia_oi_esfera": { "type": "string" },
+          "rx_distancia_oi_cilindro": { "type": "string" },
+          "rx_distancia_oi_eje": { "type": "string" },
+          "diagnostico": { "type": "string" },
+          "tipo_lente": { "type": "string" },
+          "material": { "type": "string" }
+        },
+        "required": ["paciente", "sucursal"]
+      }
+    }
+  }
+}
+

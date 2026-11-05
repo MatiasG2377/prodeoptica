@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "POS and Sales Contract",
+  "endpoints": {
+    "GET /api/productos/disponibles/": {
+      "description": "Obtiene la lista de productos disponibles en el catálogo con stock mayor a cero.",
+      "response": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "integer" },
+            "nombre_producto": { "type": "string" },
+            "categoria_producto": { "type": "integer" },
+            "pvp_producto": { "type": "string" },
+            "costo_producto": { "type": "string" },
+            "cantidad_producto": { "type": "integer" },
+            "minimo_producto": { "type": "integer" },
+            "maximo_producto": { "type": "integer" },
+            "estado_producto": { "type": "string" },
+            "marca_producto": { "type": "string" },
+            "descripcion_producto": { "type": "string" }
+          },
+          "required": ["id", "nombre_producto", "pvp_producto", "cantidad_producto"]
+        }
+      }
+    },
+    "POST /api/ventas/": {
+      "description": "Crea una venta con sus detalles comerciales y de laboratorio.",
+      "request": {
+        "type": "object",
+        "properties": {
+          "cliente_venta": { "type": "integer" },
+          "sucursal_venta": { "type": "integer" },
+          "usuario_venta": { "type": "integer" },
+          "laboratorio_venta": { "type": ["integer", "null"] },
+          "orden_laboratorio": { "type": "string" },
+          "orden_trabajo": { "type": "string" },
+          "metodo_venta": { "type": "string", "enum": ["Efectivo", "Transferencia", "Tarjeta"] },
+          "total_venta": { "type": "string" },
+          "estado_venta": { "type": "string", "enum": ["P", "F", "C"] }
+        },
+        "required": ["cliente_venta", "total_venta", "estado_venta"]
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "cliente_nombre": { "type": "string" },
+          "total_venta": { "type": "string" },
+          "estado_venta": { "type": "string" },
+          "fecha_venta": { "type": "string" }
+        }
+      }
+    }
+  }
+}
+

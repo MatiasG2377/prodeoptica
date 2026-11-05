@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cash Register and Credit Abonos Contract",
+  "endpoints": {
+    "GET /api/dashboard/cierre-caja-resumen/?fecha_inicio={inicio}&fecha_fin={fin}": {
+      "description": "Devuelve totales consolidados y desglosados por método de pago para arqueo de caja.",
+      "response": {
+        "type": "object",
+        "properties": {
+          "ventas": {
+            "type": "object",
+            "properties": {
+              "Efectivo": { "type": "number" },
+              "Transferencia": { "type": "number" },
+              "Tarjeta": { "type": "number" }
+            },
+            "required": ["Efectivo", "Transferencia", "Tarjeta"]
+          },
+          "abonos": {
+            "type": "object",
+            "properties": {
+              "Efectivo": { "type": "number" },
+              "Transferencia": { "type": "number" },
+              "Tarjeta": { "type": "number" }
+            },
+            "required": ["Efectivo", "Transferencia", "Tarjeta"]
+          },
+          "egresos": {
+            "type": "object",
+            "properties": {
+              "Efectivo": { "type": "number" },
+              "Transferencia": { "type": "number" },
+              "Tarjeta": { "type": "number" }
+            },
+            "required": ["Efectivo", "Transferencia", "Tarjeta"]
+          },
+          "ventas_total_general": { "type": "number" },
+          "abonos_total_general": { "type": "number" },
+          "egresos_total_general": { "type": "number" }
+        },
+        "required": [
+          "ventas",
+          "abonos",
+          "egresos",
+          "ventas_total_general",
+          "abonos_total_general",
+          "egresos_total_general"
+        ]
+      }
+    },
+    "GET /api/abonos/": {
+      "description": "Lista los abonos y cuentas por cobrar con saldo pendiente.",
+      "response": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "integer" },
+            "monto": { "type": "string" },
+            "metodo_pago": { "type": "string" },
+            "completado": { "type": "boolean" },
+            "tieneAbono": { "type": "boolean" },
+            "fecha": { "type": "string" },
+            "venta": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "integer" },
+                "total_venta": { "type": "string" },
+                "cliente_nombre": { "type": "string" }
+              }
+            }
+          },
+          "required": ["id", "monto", "venta"]
+        }
+      }
+    }
+  }
+}
+
